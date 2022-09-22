@@ -1,0 +1,18 @@
+model{       
+for (i in 1:Nf){
+    meanf[i] ~ dnorm(muf[i], tauf)   
+    muf[i] ~ dnorm(muf0, tauf0)
+}
+for (i in 1:Ne){
+    meane[i] ~ dnorm(mue[i], taue)   
+    mue[i] ~ dnorm(mue0, taue0)
+}
+
+muf00 ~ dnorm(0, 0.001)
+mue00 ~ dnorm(1, 0.001)
+mue0 <- max(muf00, mue00)
+muf0 <- min(muf00, mue00)
+
+tauf0 ~ dgamma(0.001, 0.001)
+taue0 ~ dgamma(0.001, 0.001)
+}

@@ -1,0 +1,8 @@
+model{       
+for (i in 1:Ng){
+    mean[i] ~ dnorm(mu[i], tau)   
+    mu[i] ~ dnorm(mu0, tau0)
+}
+mu0 ~ dnorm(0, 0.001)
+tau0 ~ dgamma(0.001, 0.001)
+}
