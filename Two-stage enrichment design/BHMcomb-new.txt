@@ -1,0 +1,20 @@
+model{       
+for (i in 1:Nf){
+    meanf[i] ~ dnorm(muf[i], tauf[i])   ## likelihood for low-efficacy subset
+    muf[i] ~ dnorm(muf0, tauf0)         ## BHM for information borrowing
+}
+for (i in 1:Ne){
+    meane[i] ~ dnorm(mue[i], taue[i])   ## likelihood for high-efficacy subset
+    mue[i] ~ dnorm(mue0, taue0)         ## BHM for information borrowing
+}
+
+muf00 ~ dnorm(0, 0.001)      ## priors for the average treatment effect within low-efficacy subset
+mue00 ~ dnorm(1, 0.001)      ## priors for the average treatment effect within high-efficacy subset
+
+## constraints for avoiding label switching
+mue0 <- max(muf00, mue00)
+muf0 <- min(muf00, mue00)
+
+tauf0 ~ dgamma(0.001, 0.001) ## priors for the shrinkage parameter in low-efficacy subset
+taue0 ~ dgamma(0.001, 0.001) ## priors for the shrinkage parameter in high-efficacy subset
+}

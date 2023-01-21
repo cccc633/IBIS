@@ -1,0 +1,8 @@
+model{       
+for (i in 1:Ng){
+    mean[i] ~ dnorm(mu[i], tau) ## likelihood
+    mu[i] ~ dnorm(mu0, tau0)    ## BHM for information borrowing
+}
+mu0 ~ dnorm(0, 0.001)           ## priors for the average treatment effect
+tau0 ~ dgamma(0.001, 0.001)     ## priors for the shrinkage parameter
+}
