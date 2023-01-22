@@ -9,7 +9,7 @@ n.scenario <- nrow(scenario)/2
 ntrial = 500  ## Number of simulated trial
 Sc = 8  ## Calibrate thresholds for the 8th scenario 
 ###### IBIS #####
-phi.e <- seq(40, 250, by=10)  ## Range for calibrating phi.e
+phi.e <- seq(50, 250, by=10)  ## Range for calibrating phi.e
 phi.p <- seq(1, 20, by=1)     ## Range for calibrating phi.p
 ## Obtain all possible subgroup divisions
 G.futile <- Divide34()
