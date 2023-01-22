@@ -143,7 +143,7 @@ ggsave("Figure 3.pdf", plot = a, device = "pdf", units = "mm", width = 170, heig
 
 ## Bias
 Bias <- read.csv("Bias.csv")
-Bias$Method <- factor(MSE$Method, c("IBIS", "Independent", "BHM"))
+Bias$Method <- factor(Bias$Method, c("IBIS", "Independent", "BHM"))
 dataforplot<- Bias[Bias$n==10, ]
 p1 <- ggplot(data=dataforplot,aes(x=Scenario, y=V1, color=Method))+
   geom_line(size=0.4) + geom_point(size=1, aes(shape=Method))+
@@ -282,7 +282,7 @@ ggsave("Figure 4.pdf", plot = a, device = "pdf", units = "mm", width = 170, heig
 
 ## Width
 Width <- read.csv("Width.csv")
-Width$Method <- factor(MSE$Method, c("IBIS", "Independent", "BHM"))
+Width$Method <- factor(Width$Method, c("IBIS", "Independent", "BHM"))
 dataforplot<- Width[Width$n==10, ]
 p1 <- ggplot(data=dataforplot,aes(x=Scenario, y=V1, color=Method))+
   geom_line(size=0.4) + geom_point(size=1, aes(shape=Method))+
@@ -294,7 +294,7 @@ p1 <- ggplot(data=dataforplot,aes(x=Scenario, y=V1, color=Method))+
         legend.text=element_text(size = 6),
         legend.title=element_text(size = 6))+
   labs(x = "Scenario", y = "95% CI Width", title = "Subgroup (1,1)")+
-  scale_x_continuous(breaks = seq(1,8))
+  scale_x_continuous(breaks = seq(1,8))+scale_y_continuous(limits = c(0.5,1.5), breaks = seq(0.5,1.5,by=0.5))
 p2 <- ggplot(data=dataforplot,aes(x=Scenario, y=V2, color=Method))+
   geom_line(size=0.4) + geom_point(size=1, aes(shape=Method))+
   theme(legend.position = 'none',
@@ -305,7 +305,7 @@ p2 <- ggplot(data=dataforplot,aes(x=Scenario, y=V2, color=Method))+
         legend.text=element_text(size = 6),
         legend.title=element_text(size = 6))+
   labs(x = "Scenario", y = "95% CI Width", title = "Subgroup (1,2)")+
-  scale_x_continuous(breaks = seq(1,8))
+  scale_x_continuous(breaks = seq(1,8))+scale_y_continuous(limits = c(0.5,1.5), breaks = seq(0.5,1.5,by=0.5))
 p3 <- ggplot(data=dataforplot,aes(x=Scenario, y=V3, color=Method))+
   geom_line(size=0.4) + geom_point(size=1, aes(shape=Method))+
   theme(legend.position = 'none',
@@ -316,7 +316,7 @@ p3 <- ggplot(data=dataforplot,aes(x=Scenario, y=V3, color=Method))+
         legend.text=element_text(size = 6),
         legend.title=element_text(size = 6))+
   labs(x = "Scenario", y = "95% CI Width", title = "Subgroup (1,3)")+
-  scale_x_continuous(breaks = seq(1,8))
+  scale_x_continuous(breaks = seq(1,8))+scale_y_continuous(limits = c(0.5,1.5), breaks = seq(0.5,1.5,by=0.5))
 p4 <- ggplot(data=dataforplot,aes(x=Scenario, y=V4, color=Method))+
   geom_line(size=0.4) + geom_point(size=1, aes(shape=Method))+
   theme(legend.position = 'none',
@@ -327,7 +327,7 @@ p4 <- ggplot(data=dataforplot,aes(x=Scenario, y=V4, color=Method))+
         legend.text=element_text(size = 6),
         legend.title=element_text(size = 6))+
   labs(x = "Scenario", y = "95% CI Width", title = "Subgroup (1,4)")+
-  scale_x_continuous(breaks = seq(1,8))
+  scale_x_continuous(breaks = seq(1,8))+scale_y_continuous(limits = c(0.5,1.5), breaks = seq(0.5,1.5,by=0.5))
 p5 <- ggplot(data=dataforplot,aes(x=Scenario, y=V5, color=Method))+
   geom_line(size=0.4) + geom_point(size=1, aes(shape=Method))+
   theme(legend.position = 'none',
@@ -338,7 +338,7 @@ p5 <- ggplot(data=dataforplot,aes(x=Scenario, y=V5, color=Method))+
         legend.text=element_text(size = 6),
         legend.title=element_text(size = 6))+
   labs(x = "Scenario", y = "95% CI Width", title = "Subgroup (2,1)")+
-  scale_x_continuous(breaks = seq(1,8))
+  scale_x_continuous(breaks = seq(1,8))+scale_y_continuous(limits = c(0.5,1.5), breaks = seq(0.5,1.5,by=0.5))
 p6 <- ggplot(data=dataforplot,aes(x=Scenario, y=V6, color=Method))+
   geom_line(size=0.4) + geom_point(size=1, aes(shape=Method))+
   theme(legend.position = 'none',
@@ -349,7 +349,7 @@ p6 <- ggplot(data=dataforplot,aes(x=Scenario, y=V6, color=Method))+
         legend.text=element_text(size = 6),
         legend.title=element_text(size = 6))+
   labs(x = "Scenario", y = "95% CI Width", title = "Subgroup (2,2)")+
-  scale_x_continuous(breaks = seq(1,8))
+  scale_x_continuous(breaks = seq(1,8))+scale_y_continuous(limits = c(0.5,1.5), breaks = seq(0.5,1.5,by=0.5))
 p7 <- ggplot(data=dataforplot,aes(x=Scenario, y=V7, color=Method))+
   geom_line(size=0.4) + geom_point(size=1, aes(shape=Method))+
   theme(legend.position = 'none',
@@ -360,7 +360,7 @@ p7 <- ggplot(data=dataforplot,aes(x=Scenario, y=V7, color=Method))+
         legend.text=element_text(size = 6),
         legend.title=element_text(size = 6))+
   labs(x = "Scenario", y = "95% CI Width", title = "Subgroup (2,3)")+
-  scale_x_continuous(breaks = seq(1,8))
+  scale_x_continuous(breaks = seq(1,8))+scale_y_continuous(limits = c(0.5,1.5), breaks = seq(0.5,1.5,by=0.5))
 p8 <- ggplot(data=dataforplot,aes(x=Scenario, y=V8, color=Method))+
   geom_line(size=0.4) + geom_point(size=1, aes(shape=Method))+
   theme(legend.position = 'none',
@@ -371,7 +371,7 @@ p8 <- ggplot(data=dataforplot,aes(x=Scenario, y=V8, color=Method))+
         legend.text=element_text(size = 6),
         legend.title=element_text(size = 6))+
   labs(x = "Scenario", y = "95% CI Width", title = "Subgroup (2,4)")+
-  scale_x_continuous(breaks = seq(1,8))
+  scale_x_continuous(breaks = seq(1,8))+scale_y_continuous(limits = c(0.5,1.5), breaks = seq(0.5,1.5,by=0.5))
 p9 <- ggplot(data=dataforplot,aes(x=Scenario, y=V9, color=Method))+
   geom_line(size=0.4) + geom_point(size=1, aes(shape=Method))+
   theme(legend.position = 'none',
@@ -382,7 +382,7 @@ p9 <- ggplot(data=dataforplot,aes(x=Scenario, y=V9, color=Method))+
         legend.text=element_text(size = 6),
         legend.title=element_text(size = 6))+
   labs(x = "Scenario", y = "95% CI Width", title = "Subgroup (3,1)")+
-  scale_x_continuous(breaks = seq(1,8))
+  scale_x_continuous(breaks = seq(1,8))+scale_y_continuous(limits = c(0.5,1.5), breaks = seq(0.5,1.5,by=0.5))
 p10 <- ggplot(data=dataforplot,aes(x=Scenario, y=V10, color=Method))+
   geom_line(size=0.4) + geom_point(size=1, aes(shape=Method))+
   theme(legend.position = 'none',
@@ -393,7 +393,7 @@ p10 <- ggplot(data=dataforplot,aes(x=Scenario, y=V10, color=Method))+
         legend.text=element_text(size = 6),
         legend.title=element_text(size = 6))+
   labs(x = "Scenario", y = "95% CI Width", title = "Subgroup (3,2)")+
-  scale_x_continuous(breaks = seq(1,8))
+  scale_x_continuous(breaks = seq(1,8))+scale_y_continuous(limits = c(0.5,1.5), breaks = seq(0.5,1.5,by=0.5))
 p11 <- ggplot(data=dataforplot,aes(x=Scenario, y=V11, color=Method))+
   geom_line(size=0.4) + geom_point(size=1, aes(shape=Method))+
   theme(legend.position = 'none',
@@ -404,7 +404,7 @@ p11 <- ggplot(data=dataforplot,aes(x=Scenario, y=V11, color=Method))+
         legend.text=element_text(size = 6),
         legend.title=element_text(size = 6))+
   labs(x = "Scenario", y = "95% CI Width", title = "Subgroup (3,3)")+
-  scale_x_continuous(breaks = seq(1,8))
+  scale_x_continuous(breaks = seq(1,8))+scale_y_continuous(limits = c(0.5,1.5), breaks = seq(0.5,1.5,by=0.5))
 p12 <- ggplot(data=dataforplot,aes(x=Scenario, y=V12, color=Method))+
   geom_line(size=0.4) + geom_point(size=1, aes(shape=Method))+
   theme(legend.position = 'none',
@@ -415,6 +415,6 @@ p12 <- ggplot(data=dataforplot,aes(x=Scenario, y=V12, color=Method))+
         legend.text=element_text(size = 6),
         legend.title=element_text(size = 6))+
   labs(x = "Scenario", y = "95% CI Width", title = "Subgroup (3,4)")+
-  scale_x_continuous(breaks = seq(1,8))
+  scale_x_continuous(breaks = seq(1,8))+scale_y_continuous(limits = c(0.5,1.5), breaks = seq(0.5,1.5,by=0.5))
 a <- grid_arrange_shared_legend(p1, p2, p3, p4, p5, p6,p7, p8,p9, p10,p11, p12,ncol = 4, nrow = 3,position='top')
 ggsave("Figure 5.pdf", plot = a, device = "pdf", units = "mm", width = 170, height = 110, dpi = 300)
